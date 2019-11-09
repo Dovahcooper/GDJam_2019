@@ -8,11 +8,24 @@ Kaylyn, put the items that can be picked from here, before the maxItems thing
 Any item will always be serialized, cause I defaulted the first one to zero,
 so it will match with the corresponding value in the Person.cs file
 */
-enum Items
+public enum Items
 {
-    television = 0,
-    audioSystem,
-
+    strawberry = 0,
+    lightbulb,
+    screwdriver,
+    sword,
+    tapshoes,
+    stapler,
+    pizza,
+    violin,
+    sunglasses,
+    cat,
+    pickaxe,
+    potato,
+    coal,
+    ring,
+    duck,
+    elevator,
     maxItems,
 }
 
