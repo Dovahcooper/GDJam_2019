@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UIElements;
 
 /*
 Kaylyn, put in people types here to correspond with the people in the other  
@@ -69,5 +69,6 @@ public class Person : MonoBehaviour
     {
         systemDialogue = "You delivered The " + itemNames[(int)personType] + "!";
         personDialogue = receiveDialogue;
+
     }
 }
