@@ -26,6 +26,13 @@ public enum PeopleTypes
     bungalow
 }
 
+public enum PersonState
+{
+    noDialogue = 0,
+    firstDialogue,
+    secondDialogue
+}
+
 public class Person : MonoBehaviour
 {
     [HideInInspector]
@@ -33,6 +40,7 @@ public class Person : MonoBehaviour
     public static string personDialogue;
 
     public static PeopleTypes personType;
+    PersonState state = PersonState.noDialogue;
 
     public static string[] itemNames;
 
@@ -70,5 +78,34 @@ public class Person : MonoBehaviour
         systemDialogue = "You delivered The " + itemNames[(int)personType] + "!";
         personDialogue = receiveDialogue;
 
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if(collision.gameObject.name == "player")
+        {
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                switch (state)
+                {
+                    case PersonState.noDialogue:
+                        GetComponentInChildren<Dialogue>().SetMessage(systemDialogue);
+                        GetComponentInChildren<Dialogue>().EnableMesh();
+                        state++;
+                        break;
+                    case PersonState.firstDialogue:
+                        GetComponentInChildren<Dialogue>().NextMessage(personDialogue);
+                        state++;
+                        break;
+                    case PersonState.secondDialogue:
+                        GetComponentInChildren<Dialogue>().DisableMesh();
+                        GetComponentInChildren<Dialogue>().ResetMessages();
+                        state = PersonState.noDialogue;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
     }
 }
