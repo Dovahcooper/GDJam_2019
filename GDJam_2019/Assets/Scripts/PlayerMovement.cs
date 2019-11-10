@@ -22,12 +22,17 @@ public class PlayerMovement : MonoBehaviour
 
     public Vector2 moveInput;
 
+    public Animator playerAnims;
+
+    public Camera playerCam;
+
     //public Buttons JumpButton;
     #endregion
 
     // Start is called before the first frame update
     void Start()
     {
+        playerAnims = GetComponent<Animator>();
         //firstJump = 10f;
 
         //transform.position = new Vector3(0, 70, 0);
@@ -37,6 +42,8 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         rb = GetComponent<Rigidbody>();
+
+       
 
         //secondJump = firstJump * 0.75f;
 
@@ -121,7 +128,14 @@ public class PlayerMovement : MonoBehaviour
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.y = Input.GetAxisRaw("Vertical");
 
+        if (moveInput.x != 0 || moveInput.y != 0)
+        {
+           playerAnims.Play("Walk");
+        }
+
         Move(moveInput);
+
+        
     }
 
     //void ControllerMovement()
@@ -142,10 +156,13 @@ public class PlayerMovement : MonoBehaviour
 
         moveCam.transform.forward = Vector3.Normalize(new Vector3(temp.x, 0.0f, temp.z));
 
-        //transform.forward = moveCam.transform.forward;
-        
+
+
         Vector3 forwards = moveCam.transform.TransformVector(playerControl) * speed * Time.fixedDeltaTime;
         forwards.y = 0;
+
+        //GameObject.Find("Player").transform.rotation = moveCam.transform.rotation;
+        
 
         rb.velocity = forwards;
         Vector2 tempVel = HiddenMath.Clamp(new Vector2(rb.velocity.x, rb.velocity.z), 5f);

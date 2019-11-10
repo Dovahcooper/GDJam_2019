@@ -58,6 +58,10 @@ public class Person : MonoBehaviour
     public Canvas systemMessage;
     public Text displayText;
 
+    public Animator playerAnimator;
+
+    public ParticleSystem hearts;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -122,6 +126,10 @@ public class Person : MonoBehaviour
         npc_name = GameObject.Find("Name").GetComponent<Text>();
         npcText = GameObject.Find("Dialogue").GetComponent<Text>();
         displayText = GameObject.Find("SystemDialogue").GetComponent<Text>();
+
+        playerAnimator = GameObject.Find("Player").GetComponent<Animator>();
+
+        hearts = GetComponentInChildren<ParticleSystem>();
 
         state = PersonState.noDialogue;
     }
@@ -193,6 +201,7 @@ public class Person : MonoBehaviour
                 MenuManager.activeDialogue = true;
                 systemMessage.enabled = true;
                 state = PersonState.firstDialogue;
+                playerAnimator.Play("Bow");
                 break;
             case PersonState.firstDialogue:
                 npcDialogue.enabled = true;
@@ -208,6 +217,7 @@ public class Person : MonoBehaviour
                 break;
             case PersonState.Exit:
                 state = PersonState.noDialogue;
+                hearts.Play();
                 MenuManager.activeDialogue = false;
                 ObjectiveManager.nextObjective();
                 break;
