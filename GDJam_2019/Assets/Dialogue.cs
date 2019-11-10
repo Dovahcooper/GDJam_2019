@@ -7,16 +7,16 @@ public class Dialogue : MonoBehaviour
 {
     public Material system, person;
 
-    public static MeshRenderer renderer;
+    public static MeshRenderer newRenderer;
 
-    string message;
+    public string message;
 
     Text textObj;
 
     // Start is called before the first frame update
     void Start()
     {
-        renderer = gameObject.GetComponent<MeshRenderer>();
+        newRenderer = gameObject.GetComponent<MeshRenderer>();
         textObj = GetComponentInChildren<Text>();
     }
 
@@ -33,26 +33,26 @@ public class Dialogue : MonoBehaviour
 
     public  void EnableMesh()
     {
-        renderer.enabled = true;
+        newRenderer.enabled = true;
         textObj.text = message;
     }
 
     public void DisableMesh()
     {
-        renderer.enabled = false;
+        newRenderer.enabled = false;
     }
 
     public void NextMessage(string next)
     {
-        renderer.material = person;
+        newRenderer.material = person;
         message = next;
         textObj.text = message;
     }
 
     public void ResetMessages()
     {
-        renderer.material = system;
-        renderer.enabled = false;
+        newRenderer.material = system;
+        newRenderer.enabled = false;
         textObj.text = "";
     }
 }

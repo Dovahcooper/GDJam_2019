@@ -40,7 +40,7 @@ public class Person : MonoBehaviour
     public static string personDialogue;
 
     public static PeopleTypes personType;
-    PersonState state = PersonState.noDialogue;
+    public PersonState state = PersonState.noDialogue;
 
     public static string[] itemNames;
 
@@ -65,12 +65,24 @@ public class Person : MonoBehaviour
             "Rubber Ducky",
             "Elevator"
             };
+
+        state = PersonState.noDialogue;
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void setPosition(Vector3 position)
+    {
+        transform.position = position;
+    }
+
+    public void setPersonType(int a_personType)
+    {
+        personType = (PeopleTypes)a_personType;
     }
 
     public static void setDialogue(string receiveDialogue)
@@ -82,7 +94,7 @@ public class Person : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if(collision.gameObject.name == "player")
+        if(collision.gameObject.tag == "Player")
         {
             if(Input.GetKeyDown(KeyCode.Space))
             {
@@ -100,6 +112,7 @@ public class Person : MonoBehaviour
                     case PersonState.secondDialogue:
                         GetComponentInChildren<Dialogue>().DisableMesh();
                         GetComponentInChildren<Dialogue>().ResetMessages();
+                        ObjectiveManager.nextObjective();
                         state = PersonState.noDialogue;
                         break;
                     default:

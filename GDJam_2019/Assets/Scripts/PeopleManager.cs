@@ -6,7 +6,11 @@ public class PeopleManager : MonoBehaviour
 {
     string[] dialogue;
 
-    public Person[] people = new Person[10];
+    public GameObject personPrefab;
+
+    public static GameObject[] people = new GameObject[10];
+
+    Vector3[] positions;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +35,26 @@ public class PeopleManager : MonoBehaviour
             "You are the first person I’ve talked to in days. I’ve been trying to debug this program I’ve been working on, and I just got it done. I figure social interaction is good, so thanks for dropping by, even if it’s just your job.",
             "I’m glad this package was able to make it to me! I just moved out of my two-storey home into this nice cozy one-storey house."
         };
+
+        positions = new Vector3[10]
+        {
+            new Vector3(1, 0, 1),
+            new Vector3(2, 0, -2),
+            new Vector3(3, 0, 3),
+            new Vector3(4, 0, -4),
+            new Vector3(5, 0, 5),
+            new Vector3(6, 0, -6),
+            new Vector3(7, 0, 7),
+            new Vector3(8, 0, -8),
+            new Vector3(9, 0, 9),
+            new Vector3(10, 0, -10)
+        };
+
+        for (int i = 0; i < 10; i++)
+        {
+            people[i] = Object.Instantiate(personPrefab);
+            people[i].GetComponent<Person>().setPosition(positions[i]);
+        }
     }
 
     // Update is called once per frame
@@ -39,8 +63,8 @@ public class PeopleManager : MonoBehaviour
         
     }
 
-    public Person NextPerson(ref int currentPerson)
+    public static Person GetPerson(int currentPerson)
     {
-        return people[currentPerson++];
+        return people[currentPerson].GetComponent<Person>();
     }
 }

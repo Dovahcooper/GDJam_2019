@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class ObjectiveManager : MonoBehaviour
 {
-    public Objective objective;
+    public static Objective objective;
 
-    public Person deliverable;
+    public static Person deliverable;
 
     private string[] giftLines;
+
+    private Items[] objectiveList = new Items[10];
 
     [HideInInspector]
     public static int currentObjective;
@@ -16,12 +18,22 @@ public class ObjectiveManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentObjective = 0;
+
+        for(int i = 0; i < 10; i++)
+        {
+            objectiveList[i] = (Items)Random.Range(0, (int)Items.maxItems);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        deliverable.setPersonType((int)objectiveList[currentObjective]);
+    }
+
+    public static void nextObjective()
+    {
+        deliverable = PeopleManager.GetPerson(++currentObjective);
     }
 }

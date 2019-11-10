@@ -103,8 +103,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3596651874293976013}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -15.758, z: 0}
-  m_LocalScale: {x: 16.166265, y: 16.166265, z: 16.166265}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8154644965432681079}
   - {fileID: 6041176187643752338}
@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6806399f06b62f419ef8ea1a0277de5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
 --- !u!135 &3816696827314330174
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -155,7 +156,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8632765416489616198
 RectTransform:
   m_ObjectHideFlags: 0
@@ -250,6 +251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   system: {fileID: 2100000, guid: 7904a996af9eec148979f394c9f7a290, type: 2}
   person: {fileID: 2100000, guid: 493ae460c3efb094695a517adac9ea10, type: 2}
+  message: 
 --- !u!1 &5881368208989033844
 GameObject:
   m_ObjectHideFlags: 0
