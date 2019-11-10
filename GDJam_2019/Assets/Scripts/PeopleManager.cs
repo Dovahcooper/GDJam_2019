@@ -54,17 +54,21 @@ public class PeopleManager : MonoBehaviour
         {
             people[i] = Object.Instantiate(personPrefab);
             people[i].GetComponent<Person>().setPosition(positions[i]);
+            //people[i].GetComponent<Person>().setPersonType(Random.Range(0, (int)Items.maxItems));
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        for(int i = 0; i < 10; i++)
+            people[i].GetComponent<Person>().setDialogue(dialogue);
+
+        people[9].GetComponent<Person>().setLast();
     }
 
-    public static Person GetPerson(int currentPerson)
+    public static GameObject GetPerson(int currentPerson)
     {
-        return people[currentPerson].GetComponent<Person>();
+        return people[currentPerson];
     }
 }

@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueStart : MonoBehaviour
+public class PauseMenuButtons : MonoBehaviour
 {
+    public Canvas pauseMenu;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,4 +17,16 @@ public class DialogueStart : MonoBehaviour
     {
         
     }
+
+    public void Shutdown()
+    {
+        Application.Quit(0);
+    }
+
+    public void Resume()
+    {
+        Debug.Log("clicked!");
+        pauseMenu.enabled = false;
+    }
+
 }

@@ -6,7 +6,7 @@ public class ObjectiveManager : MonoBehaviour
 {
     public static Objective objective;
 
-    public static Person deliverable;
+    public static GameObject deliverable;
 
     private string[] giftLines;
 
@@ -14,6 +14,8 @@ public class ObjectiveManager : MonoBehaviour
 
     [HideInInspector]
     public static int currentObjective;
+
+    public Transform playerPos;
 
     // Start is called before the first frame update
     void Start()
@@ -24,12 +26,15 @@ public class ObjectiveManager : MonoBehaviour
         {
             objectiveList[i] = (Items)Random.Range(0, (int)Items.maxItems);
         }
+
+        deliverable = PeopleManager.GetPerson(currentObjective);
     }
 
     // Update is called once per frame
     void Update()
     {
-        deliverable.setPersonType((int)objectiveList[currentObjective]);
+        deliverable.GetComponent<Person>().setPersonType((int)objectiveList[currentObjective]);
+        deliverable.GetComponent<Person>().checkPlayer(playerPos.position);
     }
 
     public static void nextObjective()

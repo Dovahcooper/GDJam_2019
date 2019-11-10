@@ -31,9 +31,10 @@ public class Dialogue : MonoBehaviour
         message = m_message;
     }
 
-    public  void EnableMesh()
+    public void EnableMesh()
     {
         newRenderer.enabled = true;
+        newRenderer.material = system;
         textObj.text = message;
     }
 
