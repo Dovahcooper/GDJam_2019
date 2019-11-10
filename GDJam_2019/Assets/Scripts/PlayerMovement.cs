@@ -7,7 +7,7 @@ using NewMath;
 public class PlayerMovement : MonoBehaviour
 {
     #region variables
-    public const float speed = 35f;
+    public const float speed = 70f;
 
     [HideInInspector]
     public bool Jumping;
@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        firstJump = 10f;
+        //firstJump = 10f;
 
         //transform.position = new Vector3(0, 70, 0);
     }
@@ -38,10 +38,10 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
 
-        secondJump = firstJump * 0.75f;
+        //secondJump = firstJump * 0.75f;
 
-        if(!MenuStart.menuActive)
-            KeyboardMovement();
+        //if(!MenuStart.menuActive)
+        KeyboardMovement();
 
         //JumpLogic();
         
@@ -142,7 +142,7 @@ public class PlayerMovement : MonoBehaviour
 
         moveCam.transform.forward = Vector3.Normalize(new Vector3(temp.x, 0.0f, temp.z));
 
-        transform.forward = moveCam.transform.forward;
+        //transform.forward = moveCam.transform.forward;
         
         Vector3 forwards = moveCam.transform.TransformVector(playerControl) * speed * Time.fixedDeltaTime;
         forwards.y = 0;

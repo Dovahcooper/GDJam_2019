@@ -23,33 +23,33 @@ public class CameraControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Cursor.lockState = CursorLockMode.Locked;
-        rotateSpeed = 3;
+        Cursor.lockState = CursorLockMode.Locked;
+        rotateSpeed = 5;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!MenuStart.menuActive)
-            mouseUpdate();
+        //if(!MenuStart.menuActive)
+        mouseUpdate();
 
-        rotateSpeed = Mathf.Clamp(rotateSpeed, 1, 10);
+        //rotateSpeed = Mathf.Clamp(rotateSpeed, 1, 10);
 
         cameraLook.y = Mathf.Clamp(cameraLook.y, -80.0f, 60.0f);
 
         Quaternion cameraRotate = Quaternion.Euler(-cameraLook.y, cameraLook.x, 0.0f);
         transform.rotation = cameraRotate;
 
-        ForwardCast = -GetComponentInChildren<CameraClipping>().noClipPositionBehind;
-        RightCast = GetComponentInChildren<CameraClipping>().noClipPositionRight;
+        //ForwardCast = -GetComponentInChildren<CameraClipping>().noClipPositionBehind;
+        //RightCast = GetComponentInChildren<CameraClipping>().noClipPositionRight;
 
         //transform.localPosition = Vector3.MoveTowards(transform.localPosition, origin, 240 * Time.deltaTime);
     }
 
     void mouseUpdate()
     {
-        cameraLook.x += Input.GetAxis("Mouse X") * rotateSpeed;
-        cameraLook.y += Input.GetAxis("Mouse Y") * rotateSpeed;
+        cameraLook.x += Input.GetAxis("Mouse X") ;//* rotateSpeed;
+        cameraLook.y += Input.GetAxis("Mouse Y"); //* rotateSpeed;
     }
 
     void OnDestroy()

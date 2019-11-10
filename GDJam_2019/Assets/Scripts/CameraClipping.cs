@@ -25,7 +25,7 @@ public class CameraClipping : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //fuck you
     }
 
     void Awake()
