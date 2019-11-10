@@ -250,6 +250,6 @@ public class Person : MonoBehaviour
 
     public void setLast()
     {
-        systemDialogue2 = "They gave you: A Crusty Sock. but this gift cannot be given because your inventory is full.";
+        systemDialogue2 = "They gave you: A Crusty Sock. You wish you could've gotten one of the other gifts though";
     }
 }

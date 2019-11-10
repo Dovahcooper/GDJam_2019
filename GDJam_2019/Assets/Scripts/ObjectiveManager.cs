@@ -35,10 +35,15 @@ public class ObjectiveManager : MonoBehaviour
     {
         deliverable.GetComponent<Person>().setPersonType((int)objectiveList[currentObjective]);
         deliverable.GetComponent<Person>().checkPlayer(playerPos.position);
+
+        
     }
 
     public static void nextObjective()
     {
-        deliverable = PeopleManager.GetPerson(++currentObjective);
+        if (currentObjective < 9)
+            deliverable = PeopleManager.GetPerson(++currentObjective);
+        else
+            currentObjective = 10;
     }
 }

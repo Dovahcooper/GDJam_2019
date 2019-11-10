@@ -7,7 +7,7 @@ using NewMath;
 public class PlayerMovement : MonoBehaviour
 {
     #region variables
-    public const float speed = 70f;
+    public const float speed = 500f;
 
     [HideInInspector]
     public bool Jumping;
@@ -40,8 +40,8 @@ public class PlayerMovement : MonoBehaviour
 
         //secondJump = firstJump * 0.75f;
 
-        //if(!MenuStart.menuActive)
-        KeyboardMovement();
+        if(!MenuManager.isTrue())
+            KeyboardMovement();
 
         //JumpLogic();
         

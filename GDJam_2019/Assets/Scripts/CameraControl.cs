@@ -30,8 +30,8 @@ public class CameraControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if(!MenuStart.menuActive)
-        mouseUpdate();
+        if(!MenuManager.isTrue())
+            mouseUpdate();
 
         //rotateSpeed = Mathf.Clamp(rotateSpeed, 1, 10);
 

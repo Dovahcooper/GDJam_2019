@@ -38,16 +38,16 @@ public class PeopleManager : MonoBehaviour
 
         positions = new Vector3[10]
         {
-            new Vector3(1, 0, 1),
-            new Vector3(2, 0, -2),
-            new Vector3(3, 0, 3),
-            new Vector3(4, 0, -4),
-            new Vector3(5, 0, 5),
-            new Vector3(6, 0, -6),
-            new Vector3(7, 0, 7),
-            new Vector3(8, 0, -8),
-            new Vector3(9, 0, 9),
-            new Vector3(10, 0, -10)
+            new Vector3(8.68f, -0.2340472f, 14.64f),
+            new Vector3(273.27f, -0.2340472f, -75.99f),
+            new Vector3(-54.43f, -0.2340472f, 4.83f),
+            new Vector3(-53.4f, -0.2340472f, 72.4f),
+            new Vector3(-48.91f, -0.2340472f, 15.03f),
+            new Vector3(-4.78f, -0.2340472f, -31.56f),
+            new Vector3(66.15f, -0.2340472f, 72.97f),
+            new Vector3(24.13f, -0.2340472f, 73.38f),
+            new Vector3(33.12f, -0.2340472f, 8.94f),
+            new Vector3(-24.87f, -0.2340472f, -53.75f)
         };
 
         for (int i = 0; i < 10; i++)

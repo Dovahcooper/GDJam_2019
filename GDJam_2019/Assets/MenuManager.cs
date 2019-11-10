@@ -46,6 +46,10 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    public static bool isTrue()
+    {
+        return (paused);
+    }
    
 
 
