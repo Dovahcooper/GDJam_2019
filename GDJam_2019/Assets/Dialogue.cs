@@ -11,10 +11,13 @@ public class Dialogue : MonoBehaviour
 
     string message;
 
+    Text textObj;
+
     // Start is called before the first frame update
     void Start()
     {
         renderer = gameObject.GetComponent<MeshRenderer>();
+        textObj = GetComponentInChildren<Text>();
     }
 
     // Update is called once per frame
@@ -31,6 +34,7 @@ public class Dialogue : MonoBehaviour
     public  void EnableMesh()
     {
         renderer.enabled = true;
+        textObj.text = message;
     }
 
     public void DisableMesh()
@@ -42,11 +46,13 @@ public class Dialogue : MonoBehaviour
     {
         renderer.material = person;
         message = next;
+        textObj.text = message;
     }
 
     public void ResetMessages()
     {
         renderer.material = system;
         renderer.enabled = false;
+        textObj.text = "";
     }
 }
