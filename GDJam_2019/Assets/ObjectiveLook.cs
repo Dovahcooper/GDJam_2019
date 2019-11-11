@@ -14,7 +14,14 @@ public class ObjectiveLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        LookAt = PeopleManager.GetPerson(ObjectiveManager.currentObjective).transform.position;
+        Vector3 tempVec = PeopleManager.GetPerson(ObjectiveManager.currentObjective).transform.position;
+
+        Vector3 swizzle = -(tempVec - transform.position);
+
+        LookAt = transform.position + swizzle;
+
+        LookAt.y = transform.position.y;
+
         transform.LookAt(LookAt);
     }
 }

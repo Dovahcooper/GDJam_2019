@@ -27,6 +27,7 @@ public class PauseMenuButtons : MonoBehaviour
     {
         Debug.Log("clicked!");
         pauseMenu.enabled = false;
+        MenuManager.paused = false;
     }
 
 }
