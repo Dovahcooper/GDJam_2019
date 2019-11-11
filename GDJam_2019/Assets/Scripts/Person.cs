@@ -227,7 +227,7 @@ public class Person : MonoBehaviour
     public void checkPlayer(Vector3 player_pos)
     {
         float magnitude = Vector3.Magnitude(player_pos - transform.position);
-        if (magnitude <= 4.5)
+        if (magnitude <= 2)
         {
 
             if (Input.GetKeyDown(KeyCode.Space))
